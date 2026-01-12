@@ -145,8 +145,9 @@ def test_wakes_with_filling_scheme_mpi():
         xo.assert_allclose(prof_turn_mpi, prof_turn_ref, rtol=0, atol=1e-12)
         xo.assert_allclose(prof_turn_mpi, (2**(num_turns-1-i_check)) * prof_mpi, rtol=0, atol=1e-12)
 
-    conv_data_mpi_dict = wake_mpi.components[0].components[0]._conv_data.__dict__
-    conv_data_ref_dict = wake_mpi.components[0].components[0]._conv_data.__dict__
+    conv_data_mpi_dict = wake_mpi.components[0]._conv_data.__dict__
+    conv_data_ref_dict = wake_mpi.components[0]._conv_data.__dict__
+    # conv_data_ref_dict = wake_ref.components[0]._conv_data.__dict__
 
     for conv_data_mpi_key in conv_data_mpi_dict:
         assert conv_data_mpi_key in conv_data_ref_dict
