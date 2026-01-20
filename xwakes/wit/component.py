@@ -196,6 +196,16 @@ class Component:
 
         return out
 
+    @property
+    def _source_moment_exponents(self) -> List[int]:
+        out = []
+        out.append(1)
+        if self.source_exponents[0] != 0:
+            out.append(self.source_exponents[0])
+        if self.source_exponents[1] != 0:
+            out.append(self.source_exponents[1])
+        return out
+
     def generate_wake_from_impedance(self) -> None:
         """
         Generate the wake from the impedance via Fourier transform.
